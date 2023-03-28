@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ActivityNavigationDrawer</string>
+    <string name="item1_nav">Actividad 1</string>
+    <string name="item2_nav">Actividad 2</string>
+    <string name="item3_nav">Actividad 3</string>
+    <string name="titulo_nv">NavigationDrawer con Actividades</string>
+</resources>
