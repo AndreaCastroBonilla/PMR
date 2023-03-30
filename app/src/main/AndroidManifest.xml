@@ -14,10 +14,19 @@
         android:theme="@style/Theme.PMR"
         tools:targetApi="31">
         <activity
-            android:name=".Activity3"
+            android:name=".Activity_6_Weather"
             android:exported="false" />
         <activity
-            android:name=".Activity2"
+            android:name=".Activity_5_Map"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_4_Filter"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_3_Wishlist"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_2_Home"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

@@ -11,15 +11,30 @@
     <!-- Componente que utilizamos para seleccionar el contenido que se va a cargar según la Actividad -->
     <ViewFlipper
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/vf"
+        android:id="@+id/viewFlipper"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" >
 
-        <include android:id="@+id/include1" layout="@layout/content_main" />
-        <include android:id="@+id/include2" layout="@layout/activity_2" />
-        <include android:id="@+id/include3" layout="@layout/activity_3" />
+        <include android:id="@+id/include1" layout="@layout/activity_1_home" />
+        <include android:id="@+id/include2" layout="@layout/activity_2_ethernet" />
+        <include android:id="@+id/include3" layout="@layout/activity_3_wishlist" />
+        <include android:id="@+id/include4" layout="@layout/activity_4_filter" />
+        <include android:id="@+id/include5" layout="@layout/activity_5_map" />
+        <include android:id="@+id/include6" layout="@layout/activity_6_weather" />
 
     </ViewFlipper>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/orange"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"

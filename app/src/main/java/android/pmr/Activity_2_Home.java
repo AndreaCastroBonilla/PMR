@@ -11,10 +11,10 @@ import android.widget.ViewFlipper;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class Activity3 extends AppCompatActivity {
+public class Activity_2_Home extends AppCompatActivity {
 
     // Constante Contenido Actividad
-    private final static int CONT_ACTIVIDAD = 2;
+    private final static int CONT_ACTIVIDAD = 1;
 
     private DrawerLayout drawerLayout;
     private NavigationView nav;
@@ -26,7 +26,7 @@ public class Activity3 extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Componente ViewFlipper
-        vf = (ViewFlipper)findViewById(R.id.vf);
+        vf = (ViewFlipper)findViewById(R.id.viewFlipper);
         vf.setDisplayedChild(CONT_ACTIVIDAD);
 
         // Componente NavigationDrawer
@@ -37,19 +37,19 @@ public class Activity3 extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Intent sendIntent;
                 switch (item.getItemId()) {
-                    case R.id.nav_item_one:
+                    case R.id.navItem1:
                         // Se inicia Actividad 1
-                        sendIntent = new Intent(Activity3.this, MainActivity.class);
+                        sendIntent = new Intent(Activity_2_Home.this, MainActivity.class);
                         startActivity(sendIntent);
                         break;
-                    case R.id.nav_item_two:
+                    case R.id.navItem2:
                         // Se inicia Actividad 2
-                        sendIntent = new Intent(Activity3.this, Activity2.class);
+                        sendIntent = new Intent(Activity_2_Home.this, Activity_2_Home.class);
                         startActivity(sendIntent);
                         break;
-                    case R.id.nav_item_three:
+                    case R.id.navItem3:
                         // Se inicia Actividad 3
-                        sendIntent = new Intent(Activity3.this, Activity3.class);
+                        sendIntent = new Intent(Activity_2_Home.this, Activity_3_Wishlist.class);
                         startActivity(sendIntent);
                         break;
                 }
