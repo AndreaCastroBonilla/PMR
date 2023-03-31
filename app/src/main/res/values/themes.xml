@@ -19,4 +19,12 @@
     </style>
     <style name="Theme.PMR.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.PMR.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+        <item name="colorPrimary">@color/purple_700</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorAccent">@color/white</item>
+        <item name="android:statusBarColor">@color/teal_200</item>
+    </style>
 </resources>
