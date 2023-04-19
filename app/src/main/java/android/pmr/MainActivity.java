@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
     // Constante Contenido Actividad
     private final static int CONT_ACTIVIDAD = 0;
 
-    private ActivityMainBinding binding;
     private DrawerLayout drawerLayout;
     private NavigationView nav;
     private ViewFlipper vf;
@@ -55,17 +54,17 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(sendIntent);
                         break;
                     case R.id.navItem4:
-                        // Se inicia Actividad 3
+                        // Se inicia Actividad 4
                         sendIntent = new Intent(MainActivity.this, Activity_4_Filter.class);
                         startActivity(sendIntent);
                         break;
                     case R.id.navItem5:
-                        // Se inicia Actividad 3
+                        // Se inicia Actividad 5
                         sendIntent = new Intent(MainActivity.this, Activity_5_Map.class);
                         startActivity(sendIntent);
                         break;
                     case R.id.navItem6:
-                        // Se inicia Actividad 3
+                        // Se inicia Actividad 5
                         sendIntent = new Intent(MainActivity.this, Activity_6_Weather.class);
                         startActivity(sendIntent);
                         break;

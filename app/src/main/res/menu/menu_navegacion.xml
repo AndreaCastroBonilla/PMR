@@ -4,29 +4,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.ComponentesMaterialDesign.MainActivity">
-    <group>
 
+    <group android:checkableBehavior="single">
         <item android:id="@+id/navItem1"
-        android:title="@string/item1_nav" />
+            android:icon="@drawable/hanger32x32black"
+            android:title="@string/item1_nav" />
 
         <item android:id="@+id/navItem2"
-            android:icon="@android:drawable/ic_dialog_email"
+            android:icon="@drawable/ethernet32x32black"
             android:title="@string/item2_nav" />
 
         <item android:id="@+id/navItem3"
-            android:icon="@android:drawable/ic_dialog_alert"
+            android:icon="@drawable/heart32x32round"
             android:title="@string/item3_nav" />
 
         <item android:id="@+id/navItem4"
-            android:icon="@android:drawable/ic_dialog_alert"
+            android:icon="@drawable/filter32x32black"
             android:title="@string/item4_nav" />
 
         <item android:id="@+id/navItem5"
-            android:icon="@android:drawable/ic_dialog_alert"
+            android:icon="@drawable/pin32x32"
             android:title="@string/item5_nav" />
 
         <item android:id="@+id/navItem6"
-            android:icon="@android:drawable/ic_dialog_alert"
+            android:icon="@drawable/cloudy32x32black"
             android:title="@string/item6_nav" />
     </group>
 

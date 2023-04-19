@@ -52,6 +52,21 @@ public class Activity_2_Home extends AppCompatActivity {
                         sendIntent = new Intent(Activity_2_Home.this, Activity_3_Wishlist.class);
                         startActivity(sendIntent);
                         break;
+                    case R.id.navItem4:
+                        // Se inicia Actividad 4
+                        sendIntent = new Intent(Activity_2_Home.this, Activity_4_Filter.class);
+                        startActivity(sendIntent);
+                        break;
+                    case R.id.navItem5:
+                        // Se inicia Actividad 5
+                        sendIntent = new Intent(Activity_2_Home.this, Activity_5_Map.class);
+                        startActivity(sendIntent);
+                        break;
+                    case R.id.navItem6:
+                        // Se inicia Actividad 6
+                        sendIntent = new Intent(Activity_2_Home.this, Activity_6_Weather.class);
+                        startActivity(sendIntent);
+                        break;
                 }
                 // Close the navigation drawer when an item is selected
                 drawerLayout.closeDrawers();
