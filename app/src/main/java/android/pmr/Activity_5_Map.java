@@ -7,11 +7,18 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.ViewFlipper;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.navigation.NavigationView;
 
-public class Activity_5_Map extends AppCompatActivity {
+public class Activity_5_Map extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMapClickListener, GoogleMap.OnMapLongClickListener {
 
     // ---------> ATTRIBUTES & CONSTANS <---------
     private final static int CONT_ACTIVIDAD = 4;
@@ -19,12 +26,20 @@ public class Activity_5_Map extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private NavigationView nav;
     private ViewFlipper vf;
+    private EditText txtLatitud, txtLongitud;
+    private GoogleMap gmap;
 
     // ---------> DEVELOPMENT <---------
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        txtLatitud = findViewById(R.id.txtLatitud);
+        txtLongitud = findViewById(R.id.txtLongitud);
+
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
 
         // ViewFlipper component
         vf = (ViewFlipper)findViewById(R.id.viewFlipper);
@@ -74,5 +89,28 @@ public class Activity_5_Map extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+        @Override
+        public void onMapReady(@NonNull GoogleMap googleMap) {
+            gmap = googleMap;
+            this.gmap.setOnMapClickListener(this);
+            this.gmap.setOnMapLongClickListener(this);
+
+            LatLng canarias = new LatLng(28.4236858,-15.8627186);
+            gmap.addMarker(new MarkerOptions().position(canarias).title("Canarias"));
+            gmap.moveCamera(CameraUpdateFactory.newLatLng(canarias));
+        }
+
+    @Override
+    public void onMapClick(@NonNull LatLng latLng) {
+        txtLatitud.setText(""+latLng.latitude);
+        txtLongitud.setText(""+latLng.longitude);
+    }
+
+    @Override
+    public void onMapLongClick(@NonNull LatLng latLng) {
+        txtLatitud.setText(""+latLng.latitude);
+        txtLongitud.setText(""+latLng.longitude);
     }
 }
