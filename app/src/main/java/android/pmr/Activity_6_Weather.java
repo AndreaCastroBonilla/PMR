@@ -7,6 +7,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.webkit.WebView;
 import android.widget.ViewFlipper;
 
 import com.google.android.material.navigation.NavigationView;
@@ -25,6 +26,9 @@ public class Activity_6_Weather extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        WebView myWebView = (WebView) findViewById(R.id.webview);
+        myWebView.loadUrl("https://www.eltiempo.es/santa-cruz-de-tenerife.html?v=por_hora");
 
         // ViewFlipper component
         vf = (ViewFlipper)findViewById(R.id.viewFlipper);
