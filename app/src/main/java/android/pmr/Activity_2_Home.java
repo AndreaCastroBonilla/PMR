@@ -43,11 +43,6 @@ public class Activity_2_Home extends AppCompatActivity {
                         sendIntent = new Intent(Activity_2_Home.this, MainActivity.class);
                         startActivity(sendIntent);
                         break;
-                    case R.id.navItem2:
-                        // start Activity 2
-                        sendIntent = new Intent(Activity_2_Home.this, Activity_2_Home.class);
-                        startActivity(sendIntent);
-                        break;
                     case R.id.navItem3:
                         // start Activity 3
                         sendIntent = new Intent(Activity_2_Home.this, Activity_3_Wishlist.class);

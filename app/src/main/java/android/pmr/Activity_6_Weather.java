@@ -27,8 +27,9 @@ public class Activity_6_Weather extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Weather component
         WebView myWebView = (WebView) findViewById(R.id.webview);
-        myWebView.loadUrl("https://www.eltiempo.es/santa-cruz-de-tenerife.html?v=por_hora");
+        myWebView.loadUrl("https://www.aemet.es/es/eltiempo/prediccion/municipios/tacoronte-id38043");
 
         // ViewFlipper component
         vf = (ViewFlipper)findViewById(R.id.viewFlipper);
@@ -45,11 +46,6 @@ public class Activity_6_Weather extends AppCompatActivity {
                     case R.id.navItem1:
                         // start Activity 1
                         sendIntent = new Intent(Activity_6_Weather.this, MainActivity.class);
-                        startActivity(sendIntent);
-                        break;
-                    case R.id.navItem2:
-                        // start Activity 2
-                        sendIntent = new Intent(Activity_6_Weather.this, Activity_2_Home.class);
                         startActivity(sendIntent);
                         break;
                     case R.id.navItem3:

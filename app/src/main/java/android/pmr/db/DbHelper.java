@@ -23,9 +23,9 @@ public class DbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + TABLE_CLOSET + "(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "image BLOB," +
-                "shop TEXT NOT NULL," +
-                "name TEXT NOT NULL)");
+                "shopName TEXT NOT NULL," +
+                "description TEXT NOT NULL," +
+                "price TEXT)");
     }
 
     @Override

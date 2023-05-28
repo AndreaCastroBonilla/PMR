@@ -3,13 +3,27 @@ package android.pmr;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.pmr.db.DbCloset;
+import android.pmr.db.DbHelper;
+import android.pmr.entities.Clothes;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.ArrayList;
 
 public class Activity_3_Wishlist extends AppCompatActivity {
 
@@ -20,11 +34,49 @@ public class Activity_3_Wishlist extends AppCompatActivity {
     private NavigationView nav;
     private ViewFlipper vf;
 
+    private Button btnCrear, btnSave;
+    private EditText txtShopName, txtDesc, txtPrice;
+
     // ---------> DEVELOPMENT <---------
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+       /*btnCrear = findViewById(R.id.button);
+        btnCrear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DbHelper dbHelper = new DbHelper(Activity_3_Wishlist.this);
+                SQLiteDatabase db = dbHelper.getWritableDatabase();
+                if(db!=null){
+                    Toast.makeText(Activity_3_Wishlist.this, "base de datos creada", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(Activity_3_Wishlist.this, "error", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });*/
+
+        txtShopName = findViewById(R.id.txtShopName);
+        txtDesc = findViewById(R.id.txtDesc);
+        txtPrice = findViewById(R.id.txtPrice);
+        btnSave = findViewById(R.id.btnSave);
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DbCloset dbCloset = new DbCloset(Activity_3_Wishlist.this);
+                long id = dbCloset.insertClothing(txtShopName.getText().toString(), txtDesc.getText().toString(), txtPrice.getText().toString());
+
+                if(id > 0) {
+                    Toast.makeText(Activity_3_Wishlist.this,"SAVED", Toast.LENGTH_LONG).show();
+                    clean();
+                } else {
+                    Toast.makeText(Activity_3_Wishlist.this,"ERROR", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
 
         // ViewFlipper component
         vf = (ViewFlipper)findViewById(R.id.viewFlipper);
@@ -41,11 +93,6 @@ public class Activity_3_Wishlist extends AppCompatActivity {
                     case R.id.navItem1:
                         // start Activity 1
                         sendIntent = new Intent(Activity_3_Wishlist.this, MainActivity.class);
-                        startActivity(sendIntent);
-                        break;
-                    case R.id.navItem2:
-                        // start Activity 2
-                        sendIntent = new Intent(Activity_3_Wishlist.this, Activity_2_Home.class);
                         startActivity(sendIntent);
                         break;
                     case R.id.navItem3:
@@ -74,5 +121,32 @@ public class Activity_3_Wishlist extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_principal, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menuNuevo:
+                nuevoRegistro();
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
+
+    private void nuevoRegistro() {
+    }
+
+    private void clean(){
+        txtShopName.setText("");
+        txtDesc.setText("");
+        txtPrice.setText("");
     }
 }

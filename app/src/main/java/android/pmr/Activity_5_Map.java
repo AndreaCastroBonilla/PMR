@@ -7,6 +7,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.ViewFlipper;
 
@@ -18,7 +19,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.navigation.NavigationView;
 
-public class Activity_5_Map extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMapClickListener, GoogleMap.OnMapLongClickListener {
+public class Activity_5_Map extends AppCompatActivity {
 
     // ---------> ATTRIBUTES & CONSTANS <---------
     private final static int CONT_ACTIVIDAD = 4;
@@ -35,11 +36,9 @@ public class Activity_5_Map extends AppCompatActivity implements OnMapReadyCallb
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        txtLatitud = findViewById(R.id.txtLatitud);
-        txtLongitud = findViewById(R.id.txtLongitud);
-
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+        // Maps component
+        WebView myWebView = (WebView) findViewById(R.id.webviewMap);
+        myWebView.loadUrl("https://www.google.com/maps/@28.30421,-16.5235068,10.3z?authuser=1");
 
         // ViewFlipper component
         vf = (ViewFlipper)findViewById(R.id.viewFlipper);
@@ -56,11 +55,6 @@ public class Activity_5_Map extends AppCompatActivity implements OnMapReadyCallb
                     case R.id.navItem1:
                         // start Activity 1
                         sendIntent = new Intent(Activity_5_Map.this, MainActivity.class);
-                        startActivity(sendIntent);
-                        break;
-                    case R.id.navItem2:
-                        // start Activity 2
-                        sendIntent = new Intent(Activity_5_Map.this, Activity_2_Home.class);
                         startActivity(sendIntent);
                         break;
                     case R.id.navItem3:
@@ -91,26 +85,7 @@ public class Activity_5_Map extends AppCompatActivity implements OnMapReadyCallb
         });
     }
 
-        @Override
-        public void onMapReady(@NonNull GoogleMap googleMap) {
-            gmap = googleMap;
-            this.gmap.setOnMapClickListener(this);
-            this.gmap.setOnMapLongClickListener(this);
 
-            LatLng canarias = new LatLng(28.4236858,-15.8627186);
-            gmap.addMarker(new MarkerOptions().position(canarias).title("Canarias"));
-            gmap.moveCamera(CameraUpdateFactory.newLatLng(canarias));
-        }
 
-    @Override
-    public void onMapClick(@NonNull LatLng latLng) {
-        txtLatitud.setText(""+latLng.latitude);
-        txtLongitud.setText(""+latLng.longitude);
-    }
 
-    @Override
-    public void onMapLongClick(@NonNull LatLng latLng) {
-        txtLatitud.setText(""+latLng.latitude);
-        txtLongitud.setText(""+latLng.longitude);
-    }
 }

@@ -10,10 +10,6 @@
             android:icon="@drawable/hanger32x32black"
             android:title="@string/item1_nav" />
 
-        <item android:id="@+id/navItem2"
-            android:icon="@drawable/ethernet32x32black"
-            android:title="@string/item2_nav" />
-
         <item android:id="@+id/navItem3"
             android:icon="@drawable/heart32x32round"
             android:title="@string/item3_nav" />

@@ -3,13 +3,20 @@ package android.pmr;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.pmr.db.Adapter;
+import android.pmr.db.DbCloset;
+import android.pmr.entities.Clothes;
 import android.view.MenuItem;
 import android.widget.ViewFlipper;
 
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.ArrayList;
 
 public class Activity_4_Filter extends AppCompatActivity {
 
@@ -20,11 +27,23 @@ public class Activity_4_Filter extends AppCompatActivity {
     private NavigationView nav;
     private ViewFlipper vf;
 
+    private RecyclerView listClothes;
+    private ArrayList<Clothes> listArrayClothes;
+
     // ---------> DEVELOPMENT <---------
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        listClothes = findViewById(R.id.listClothes);
+        listClothes.setLayoutManager(new LinearLayoutManager(this));
+
+        DbCloset dbCloset = new DbCloset( Activity_4_Filter.this);
+        listArrayClothes = new ArrayList<>();
+
+        Adapter adapter = new Adapter(dbCloset.showClothes());
+        listClothes.setAdapter(adapter);
 
         // ViewFlipper component
         vf = (ViewFlipper)findViewById(R.id.viewFlipper);
@@ -41,11 +60,6 @@ public class Activity_4_Filter extends AppCompatActivity {
                     case R.id.navItem1:
                         // start Activity 1
                         sendIntent = new Intent(Activity_4_Filter.this, MainActivity.class);
-                        startActivity(sendIntent);
-                        break;
-                    case R.id.navItem2:
-                        // start Activity 2
-                        sendIntent = new Intent(Activity_4_Filter.this, Activity_2_Home.class);
                         startActivity(sendIntent);
                         break;
                     case R.id.navItem3:
