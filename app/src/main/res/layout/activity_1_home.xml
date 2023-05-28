@@ -10,19 +10,11 @@
     android:padding="20dp"
     tools:context=".MainActivity">
 
-    <GridView
-        android:id="@+id/gridView"
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:numColumns="2">
-    </GridView>
-
     <ImageView
         android:id="@+id/picture"
         android:layout_width="match_parent"
         android:layout_height="570dp"
-        android:gravity="center_horizontal|top">
-    </ImageView>
+        android:gravity="center_horizontal|top"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnOpenCamera"
@@ -30,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:src="@drawable/camera64x64"
-        android:layout_margin="16dp"/>
+        app:backgroundTint="@color/pb_03"
+        android:layout_margin="20dp"/>
 </FrameLayout>
 

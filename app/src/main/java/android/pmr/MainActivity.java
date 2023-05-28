@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
         // Camera component
         picture = findViewById(R.id.picture);
         openCamera = findViewById(R.id.btnOpenCamera);
-        gridView = findViewById(R.id.gridView);
 
         openCamera.setOnClickListener(new View.OnClickListener() {
             @Override
